@@ -1,17 +1,29 @@
 {
-  "name": "storybook-addon-kit",
-  "version": "0.0.0",
-  "description": "everything you need to build a Storybook addon",
+  "name": "storybook-addon-team-notes",
+  "version": "0.1.0",
+  "description": "Figma-like pins & threaded comments directly in Storybook — align Design, Product & Dev on every component.",
   "keywords": [
-    "storybook-addons"
+    "storybook-addons",
+    "storybook",
+    "addon",
+    "design-system",
+    "collaboration",
+    "comments",
+    "notes",
+    "frontend",
+    "ux"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/storybookjs/storybook-addon-kit"
+    "url": "https://github.com/mohamedmokhtari/storybook-addon-team-notes"
   },
+  "bugs": {
+    "url": "https://github.com/mohamedmokhtari/storybook-addon-team-notes/issues"
+  },
+  "homepage": "https://github.com/mohamedmokhtari/storybook-addon-team-notes#readme",
   "type": "module",
   "license": "MIT",
-  "author": "package-author",
+  "author": "Mohamed Mokhtari <mohamed.mokhtari.pro@gmail.com>",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -90,9 +102,12 @@
     ]
   },
   "storybook": {
-    "displayName": "Addon Kit",
+    "displayName": "Team Notes",
     "supportedFrameworks": [
-      "supported-frameworks"
+      "react",
+      "vue",
+      "svelte",
+      "html"
     ],
     "icon": "https://user-images.githubusercontent.com/321738/63501763-88dbf600-c4cc-11e9-96cd-94adadc2fd72.png"
   }
