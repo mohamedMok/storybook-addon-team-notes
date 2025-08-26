@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Figma-like pins & threaded comments directly in Storybook — align Design, Product & Dev on every component.",
   "keywords": [
-    "storybook-addons",
+    "storybook addons", "storybook-addons",
     "storybook",
     "addon",
     "design-system",
@@ -46,7 +46,6 @@
     "*.d.ts"
   ],
   "scripts": {
-    "postinstall": "node scripts/welcome.js",
     "build": "tsup",
     "build:watch": "npm run build -- --watch",
     "test": "echo \"Error: no test specified\" && exit 1",
