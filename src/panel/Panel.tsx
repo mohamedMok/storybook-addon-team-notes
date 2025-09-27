@@ -1,5 +1,5 @@
 import React, { useMemo, useState, useEffect, useCallback } from "react";
-import { useChannel, useStorybookState } from "@storybook/manager-api";
+import { useChannel, useStorybookState } from "storybook/manager-api";
 import { EVENTS } from "../constants";
 import { Pin } from "../types";
 import { PinList } from "./PinList";

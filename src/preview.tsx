@@ -1,6 +1,6 @@
 // src/preview.ts
 import React from "react";
-import { addons } from "@storybook/preview-api";
+import { addons } from "storybook/preview-api";
 import type { DecoratorFunction } from "storybook/internal/types";
 import { Overlay } from "./preview/Overlay";
 import { EVENTS } from "./constants";
