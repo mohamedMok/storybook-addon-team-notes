@@ -1,5 +1,5 @@
 // src/preview/Overlay.tsx
-import * as React from "react";
+import React, { useRef, useState, useEffect, useCallback } from "react";
 import type { Channel } from "@storybook/channels";
 import { EVENTS } from "../constants";
 import type { Pin } from "../types";
@@ -11,12 +11,12 @@ type Props = {
 };
 
 export const Overlay: React.FC<Props> = ({ channel, storyId }) => {
-  const ref = React.useRef<HTMLDivElement>(null);
-  const [pinMode, setPinMode] = React.useState(false);
-  const [hover, setHover] = React.useState<{ xPct: number; yPct: number } | null>(null);
+  const ref = useRef<HTMLDivElement>(null);
+  const [pinMode, setPinMode] = useState(false);
+  const [hover, setHover] = useState<{ xPct: number; yPct: number } | null>(null);
 
   // Sync Pin Mode depuis le panel
-  React.useEffect(() => {
+  useEffect(() => {
     const onToggle = ({ enabled, storyId: target }: { enabled: boolean; storyId: string }) => {
       if (target === storyId) setPinMode(enabled);
     };
@@ -25,7 +25,7 @@ export const Overlay: React.FC<Props> = ({ channel, storyId }) => {
   }, [channel, storyId]);
 
   // ESC pour sortir
-  React.useEffect(() => {
+  useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setPinMode(false);
     };
@@ -33,13 +33,13 @@ export const Overlay: React.FC<Props> = ({ channel, storyId }) => {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
-  const onMove = React.useCallback((e: React.MouseEvent) => {
+  const onMove = useCallback((e: React.MouseEvent) => {
     if (!pinMode || !ref.current) return;
     const { xPct, yPct } = pctFromClientPoint(ref.current, e.clientX, e.clientY);
     setHover({ xPct, yPct });
   }, [pinMode]);
 
-  const onClick = React.useCallback((e: React.MouseEvent) => {
+  const onClick = useCallback((e: React.MouseEvent) => {
     if (!pinMode || !ref.current) return;
     e.preventDefault();
     const { xPct, yPct } = pctFromClientPoint(ref.current, e.clientX, e.clientY);
